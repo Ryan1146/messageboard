@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.rc1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc1'
@@ -48,6 +47,17 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'will_paginate-bootstrap'
 
+
+#Heroku use the pg for database
+group :development, :test do
+	gem 'sqlite3'
+end
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
+#end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
