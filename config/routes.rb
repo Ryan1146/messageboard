@@ -2,8 +2,8 @@ Messageboard::Application.routes.draw do
   #get "pages/home"
   resources :messages
 
-  #root "messages#index"
-  root "pages#home"
+  root "messages#index"
+  #root "pages#home"
   get "about" => "pages#about"
 
   #match ':controller(/:action(/:id(.:format)))' ,via: [:get, :post]
