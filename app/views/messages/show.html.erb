@@ -1,0 +1,12 @@
+<p>Show</p>
+<div class="coantiner">
+	<div class= "well">
+		<h4><%= @message.name %></h4>
+		<h5><%= @message.message %></h5>
+
+	</div>
+</div>
+
+<%=link_to messages_path do%>
+	<span class="glyphicon glyphicon-trash"></span>Back
+<%end%>
