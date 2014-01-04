@@ -7,12 +7,22 @@
 			<div class="col-md-12 well">
 				<h4><%= message.name %></h4>
 				<%= simple_format(message.message)%>
+
+				<%= image_tag message.user.avatar.url(:medium) %>
+
+				<p><%= message.user_id%><p>
+
+				<p><%= message.user.email if(message.user)%><p>
+	
+					
 				<!--<h5><%= message.message %></h5>-->
 
 				<%= link_to 'show', message_path(message) %>
-				<%= link_to 'edit', edit_message_path(message) %>
-				<%= link_to 'delete', message_path(message),method: :delete, data: { confirm: 'Are you sure?' } %>
-				<!--<%= button_to 'delete', message_path(message), method: :delete%>-->
+				<%if(message.user == current_user)%>
+					<%= link_to 'edit', edit_message_path(message) %>
+					<%= link_to 'delete', message_path(message),method: :delete, data: { confirm: 'Are you sure?' } %>
+					<!--<%= button_to 'delete', message_path(message), method: :delete%>-->
+				<%end%>
 			</div>
 		</div>
 
@@ -23,6 +33,8 @@
 
 <div class="row">
 	<div class="col-md-12 ">
-		<%= link_to 'new', new_message_path %>
+		<% if user_signed_in?%>
+			<%= link_to 'new', new_message_path %>
+		<%end%>
 	</div>
 </div>

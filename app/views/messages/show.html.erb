@@ -2,7 +2,7 @@
 <div class="coantiner">
 	<div class= "well">
 		<h4><%= @message.name %></h4>
-		<h5><%= @message.message %></h5>
+		<h5><%= simple_format(@message.message) %></h5>
 
 	</div>
 </div>
